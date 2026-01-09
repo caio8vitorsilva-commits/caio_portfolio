@@ -1,24 +1,31 @@
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import RobotSection from '@/components/RobotSection';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { IlluminatedHero } from '@/components/ui/illuminated-hero';
 
 const Index = () => {
+  const [showIntro, setShowIntro] = useState(true);
+
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <RobotSection />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <>
+      {showIntro && (
+        <IlluminatedHero onComplete={() => setShowIntro(false)} />
+      )}
+      <div className={`min-h-screen bg-background transition-opacity duration-500 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
