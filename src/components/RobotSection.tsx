@@ -27,10 +27,10 @@ export function RobotSection() {
             </div>
 
             {/* Right content - 3D Robot */}
-            <div className="flex-1 relative min-h-[300px] md:min-h-[500px]">
-              <SplineScene 
+            <div className="flex-1 relative min-h-[320px] md:min-h-[500px] overflow-hidden">
+              <SplineScene
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
+                className="absolute inset-0"
               />
             </div>
           </div>
