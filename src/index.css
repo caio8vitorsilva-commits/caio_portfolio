@@ -148,3 +148,7 @@
     overflow: hidden;
   }
 }
+
+#spline-badge {
+display: none !important;
+}
