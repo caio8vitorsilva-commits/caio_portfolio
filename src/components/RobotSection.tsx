@@ -1,0 +1,37 @@
+import { SplineScene } from "@/components/ui/splite";
+import { Card } from "@/components/ui/card";
+import { Spotlight } from "@/components/ui/spotlight";
+
+export function RobotSection() {
+  return (
+    <section className="w-full py-12 md:py-24">
+      <Card className="w-full max-w-6xl mx-auto bg-black/[0.96] relative overflow-hidden min-h-[500px]">
+        <Spotlight
+          className="-top-40 left-0 md:left-60 md:-top-20"
+          size={300}
+        />
+        
+        <div className="flex flex-col md:flex-row h-full min-h-[500px]">
+          {/* Left content */}
+          <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
+            <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+              Criatividade & Tecnologia
+            </h2>
+            <p className="mt-4 text-neutral-300 max-w-lg">
+              Traga sua interface para a vida com cenas 3D impressionantes. 
+              Crie experiências imersivas que capturam a atenção e aprimoram seu design.
+            </p>
+          </div>
+
+          {/* Right content - 3D Robot */}
+          <div className="flex-1 relative min-h-[400px] md:min-h-[500px]">
+            <SplineScene 
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+      </Card>
+    </section>
+  );
+}

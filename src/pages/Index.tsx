@@ -6,6 +6,7 @@ import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { IlluminatedHero } from '@/components/ui/illuminated-hero';
+import { RobotSection } from '@/components/RobotSection';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -21,6 +22,7 @@ const Index = () => {
           <Hero />
           <About />
           <Skills />
+          <RobotSection />
           <Contact />
         </main>
         <Footer />
