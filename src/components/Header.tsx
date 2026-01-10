@@ -7,8 +7,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6 md:px-12">
-      <nav className="flex items-center justify-between max-w-7xl mx-auto">
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6 md:px-12 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto w-full">
         <a href="#inicio" className="font-heading font-bold text-xl tracking-tight text-foreground">
           CAIO.DEV
         </a>
