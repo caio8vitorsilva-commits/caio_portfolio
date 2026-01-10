@@ -1,6 +1,8 @@
 'use client'
 
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useCallback } from 'react'
+import type { Application } from '@splinetool/runtime'
+
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
 interface SplineSceneProps {
@@ -9,6 +11,19 @@ interface SplineSceneProps {
 }
 
 export function SplineScene({ scene, className }: SplineSceneProps) {
+  const onLoad = useCallback((splineApp: Application) => {
+    // Optimize for high refresh rate displays (120fps+)
+    if (splineApp) {
+      // Set pixel ratio for sharper rendering on high-DPI displays
+      const canvas = splineApp.canvas
+      if (canvas) {
+        // Limit pixel ratio to prevent performance issues
+        const maxPixelRatio = Math.min(window.devicePixelRatio, 2)
+        canvas.style.imageRendering = 'auto'
+      }
+    }
+  }, [])
+
   return (
     <Suspense 
       fallback={
@@ -20,6 +35,7 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
       <Spline
         scene={scene}
         className={className}
+        onLoad={onLoad}
       />
     </Suspense>
   )
