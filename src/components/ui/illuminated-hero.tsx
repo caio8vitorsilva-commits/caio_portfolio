@@ -39,36 +39,32 @@ export function IlluminatedHero({ onComplete }: IlluminatedHeroProps) {
         }}
       >
         <p className="mb-4 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          Portfólio
+          PORTFÓLIO
         </p>
 
-        <h1 className="font-heading text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
-          <span className="text-foreground">Bem-vindo ao meu portfólio.</span>
+        <h1 className="font-heading text-4xl font-bold uppercase leading-tight tracking-tight md:text-6xl lg:text-7xl">
+          <span className="text-foreground">BEM-VINDO AO MEU PORTFÓLIO</span>
           <br />
           <span className="relative inline-block">
             <span className="relative z-10 bg-gradient-to-b from-foreground via-foreground/90 to-muted-foreground bg-clip-text text-transparent">
-              Onde ideias ganham forma.
+              ONDE IDEIAS GANHAM FORMA
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-foreground/20 via-foreground/10 to-transparent blur-xl" />
           </span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
-          Ideias transformadas em experiências visuais com propósito.
+        <p className="mt-6 max-w-xl text-lg uppercase text-muted-foreground md:text-xl">
+          IDEIAS TRANSFORMADAS EM EXPERIÊNCIAS VISUAIS COM PROPÓSITO
         </p>
 
-        {/* Loading indicator */}
-        <div className="mt-12 flex flex-col items-center gap-3">
-          <div className="h-1 w-32 overflow-hidden rounded-full bg-muted">
-            <div
-              className="h-full bg-foreground"
-              style={{
-                animation: 'loadingBar 3s ease-out forwards',
-              }}
-            />
-          </div>
-          <span className="text-xs text-muted-foreground">Carregando...</span>
-        </div>
+        {/* CTA Button */}
+        <button
+          onClick={() => onComplete?.()}
+          className="mt-12 group relative overflow-hidden rounded-full bg-foreground px-8 py-3 text-sm font-medium uppercase tracking-wider text-background transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-foreground/20"
+        >
+          <span className="relative z-10">Explorar</span>
+          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-background/20 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
+        </button>
       </div>
 
       {/* Grid pattern overlay */}
