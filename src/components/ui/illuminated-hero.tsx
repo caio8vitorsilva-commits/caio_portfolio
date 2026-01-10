@@ -6,12 +6,7 @@ interface IlluminatedHeroProps {
 }
 
 export function IlluminatedHero({ onComplete }: IlluminatedHeroProps) {
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      onComplete?.();
-    }, 3500);
-    return () => clearTimeout(timer);
-  }, [onComplete]);
+  // Removed auto-complete timer - user must click button
 
   return (
     <div className="fixed inset-0 z-50 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-background">
