@@ -22,7 +22,7 @@ const Skills = () => {
           Tecnologias & <span className="text-muted-foreground">Competências</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           <div className="glass-card">
             <h3 className="font-heading text-xl font-semibold mb-6 text-foreground">
               Desenvolvimento

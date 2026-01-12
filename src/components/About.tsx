@@ -36,9 +36,9 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-border">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-16 border-t border-border">
           {highlights.map((item) => (
-            <div key={item.label} className="text-center md:text-left">
+            <div key={item.label} className="text-center sm:text-left">
               <p className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-2">
                 {item.value}
               </p>
