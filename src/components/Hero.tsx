@@ -3,10 +3,10 @@ import WaveBackground from './WaveBackground';
 
 const Hero = () => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden px-6 md:px-12">
       <WaveBackground />
       
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-24">
         <div className="space-y-4">
           <h1 className="hero-title animate-fade-up">
             DESENVOLVEDOR
