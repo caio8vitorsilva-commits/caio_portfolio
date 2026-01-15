@@ -3,11 +3,11 @@ import WaveBackground from './WaveBackground';
 
 const Hero = () => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden px-6 md:px-12">
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden px-4 sm:px-6 md:px-12">
       <WaveBackground />
       
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-24">
-        <div className="space-y-4">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-20 sm:pt-24">
+        <div className="space-y-2 sm:space-y-4">
           <h1 className="hero-title animate-fade-up">
             DESENVOLVEDOR
           </h1>
@@ -16,16 +16,16 @@ const Hero = () => {
           </h2>
         </div>
 
-        <div className="mt-12 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div className="mt-8 sm:mt-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8">
           <div className="animate-fade-up-delay-2">
-            <p className="section-number mb-2">// SOLUÇÕES WEB ESCALÁVEIS.</p>
+            <p className="section-number mb-2 text-xs sm:text-sm">// SOLUÇÕES WEB ESCALÁVEIS.</p>
           </div>
 
           <div className="max-w-md animate-fade-up-delay-3">
-            <p className="text-foreground font-heading text-lg mb-2">
+            <p className="text-foreground font-heading text-base sm:text-lg mb-2">
               Caio Vitor / Desenvolvedor Web
             </p>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
               Desenvolvedor em formação com 21 anos, movido pela paixão de criar 
               aplicações eficientes e modernas. Focado em desenvolvimento web 
               full-stack, buscando minha primeira oportunidade profissional.
@@ -35,7 +35,7 @@ const Hero = () => {
 
         <a 
           href="#sobre" 
-          className="inline-flex items-center gap-2 mt-16 text-sm text-muted-foreground hover:text-foreground transition-colors animate-fade-up-delay-4"
+          className="inline-flex items-center gap-2 mt-12 sm:mt-16 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors animate-fade-up-delay-4"
         >
           EXPLORAR MEU TRABALHO
           <ArrowDown className="w-4 h-4 animate-float" />

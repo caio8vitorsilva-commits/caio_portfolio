@@ -75,14 +75,20 @@
   }
 
   .hero-title {
-    @apply text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-none;
+    @apply text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-none;
     font-family: var(--font-heading);
   }
 
   .hero-subtitle {
-    @apply text-5xl md:text-7xl lg:text-[8rem] font-bold tracking-tighter leading-none text-transparent;
-    -webkit-text-stroke: 2px hsl(var(--foreground));
+    @apply text-3xl sm:text-5xl md:text-7xl lg:text-[8rem] font-bold tracking-tighter leading-none text-transparent;
+    -webkit-text-stroke: 1px hsl(var(--foreground));
     font-family: var(--font-heading);
+  }
+  
+  @media (min-width: 640px) {
+    .hero-subtitle {
+      -webkit-text-stroke: 2px hsl(var(--foreground));
+    }
   }
 
   .section-number {
