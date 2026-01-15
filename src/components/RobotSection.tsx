@@ -1,16 +1,11 @@
 import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card";
-import { Spotlight } from "@/components/ui/spotlight";
 
 export function RobotSection() {
   return (
     <section className="w-full py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <Card className="w-full bg-black/[0.96] relative overflow-hidden min-h-[500px]">
-          <Spotlight
-            className="-top-40 left-0 md:left-60 md:-top-20"
-            size={300}
-          />
           
           <div className="flex flex-col md:flex-row h-full min-h-[500px]">
             {/* Left content */}
