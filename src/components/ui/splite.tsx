@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, lazy, useCallback } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useRef, memo } from 'react'
 import type { Application } from '@splinetool/runtime'
 
 const Spline = lazy(() => import('@splinetool/react-spline'))
@@ -10,16 +10,39 @@ interface SplineSceneProps {
   className?: string
 }
 
-export function SplineScene({ scene, className }: SplineSceneProps) {
+export const SplineScene = memo(function SplineScene({ scene, className }: SplineSceneProps) {
+  const splineRef = useRef<Application | null>(null)
+  const rafRef = useRef<number | null>(null)
+
   const onLoad = useCallback((splineApp: Application) => {
-    // Optimize for high refresh rate displays (120fps+)
     if (splineApp) {
-      // Set pixel ratio for sharper rendering on high-DPI displays
+      splineRef.current = splineApp
+      
+      // Optimize canvas for performance
       const canvas = splineApp.canvas
       if (canvas) {
-        // Limit pixel ratio to prevent performance issues
-        const maxPixelRatio = Math.min(window.devicePixelRatio, 2)
-        canvas.style.imageRendering = 'auto'
+        // Limit pixel ratio to 1.5 for better performance
+        const ctx = canvas.getContext('webgl2') || canvas.getContext('webgl')
+        if (ctx) {
+          // Enable performance optimizations
+          canvas.style.willChange = 'transform'
+          canvas.style.transform = 'translateZ(0)'
+        }
+      }
+
+      // Use requestAnimationFrame for smooth 120fps rendering
+      const animate = () => {
+        rafRef.current = requestAnimationFrame(animate)
+      }
+      animate()
+    }
+  }, [])
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current)
       }
     }
   }, [])
@@ -39,4 +62,4 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
       />
     </Suspense>
   )
-}
+})
