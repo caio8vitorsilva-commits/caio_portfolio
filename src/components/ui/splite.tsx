@@ -11,55 +11,65 @@ interface SplineSceneProps {
 }
 
 export const SplineScene = memo(function SplineScene({ scene, className }: SplineSceneProps) {
-  const splineRef = useRef<Application | null>(null)
-  const rafRef = useRef<number | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const onLoad = useCallback((splineApp: Application) => {
     if (splineApp) {
-      splineRef.current = splineApp
-      
-      // Optimize canvas for performance
       const canvas = splineApp.canvas
       if (canvas) {
-        // Limit pixel ratio to 1.5 for better performance
-        const ctx = canvas.getContext('webgl2') || canvas.getContext('webgl')
-        if (ctx) {
-          // Enable performance optimizations
-          canvas.style.willChange = 'transform'
-          canvas.style.transform = 'translateZ(0)'
-        }
+        // Force high performance rendering
+        canvas.style.willChange = 'contents'
+        canvas.style.transform = 'translate3d(0,0,0)'
+        canvas.style.backfaceVisibility = 'hidden'
+        
+        // Get WebGL context with high performance settings
+        const gl = canvas.getContext('webgl2', {
+          antialias: false,
+          powerPreference: 'high-performance',
+          desynchronized: true,
+          preserveDrawingBuffer: false,
+          failIfMajorPerformanceCaveat: false
+        }) || canvas.getContext('webgl', {
+          antialias: false,
+          powerPreference: 'high-performance',
+          desynchronized: true,
+          preserveDrawingBuffer: false
+        })
+        
+        // Set lower pixel ratio for better performance
+        const dpr = Math.min(window.devicePixelRatio, 1.5)
+        canvas.width = canvas.clientWidth * dpr
+        canvas.height = canvas.clientHeight * dpr
       }
-
-      // Use requestAnimationFrame for smooth 120fps rendering
-      const animate = () => {
-        rafRef.current = requestAnimationFrame(animate)
-      }
-      animate()
     }
   }, [])
 
-  // Cleanup on unmount
+  // Apply GPU acceleration to container
   useEffect(() => {
-    return () => {
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current)
-      }
+    if (containerRef.current) {
+      containerRef.current.style.transform = 'translateZ(0)'
+      containerRef.current.style.willChange = 'transform'
     }
   }, [])
 
   return (
-    <Suspense 
-      fallback={
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
-        </div>
-      }
-    >
-      <Spline
-        scene={scene}
-        className={className}
-        onLoad={onLoad}
-      />
-    </Suspense>
+    <div ref={containerRef} className={`${className} gpu-accelerated`} style={{ 
+      contain: 'strict',
+      isolation: 'isolate'
+    }}>
+      <Suspense 
+        fallback={
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
+          </div>
+        }
+      >
+        <Spline
+          scene={scene}
+          className="w-full h-full"
+          onLoad={onLoad}
+        />
+      </Suspense>
+    </div>
   )
 })
