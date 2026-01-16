@@ -75,14 +75,18 @@
   }
 
   .hero-title {
-    @apply text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-none;
+    @apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none;
     font-family: var(--font-heading);
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .hero-subtitle {
-    @apply text-3xl sm:text-5xl md:text-7xl lg:text-[8rem] font-bold tracking-tighter leading-none text-transparent;
+    @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-none text-transparent;
     -webkit-text-stroke: 1px hsl(var(--foreground));
     font-family: var(--font-heading);
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
   
   @media (min-width: 640px) {
