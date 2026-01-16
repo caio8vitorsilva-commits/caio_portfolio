@@ -4,12 +4,23 @@ import { useState, useEffect } from "react";
 
 export function RobotSection() {
   const [showRobot, setShowRobot] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Delay loading for better performance
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
     const timer = setTimeout(() => setShowRobot(true), 500);
-    return () => clearTimeout(timer);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      clearTimeout(timer);
+    };
   }, []);
+
+  // Hide entire section on mobile
+  if (isMobile) return null;
 
   return (
     <section className="w-full py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-12 overflow-hidden">
@@ -29,7 +40,7 @@ export function RobotSection() {
             </div>
 
             {/* Right content - 3D Robot */}
-            <div className="flex-1 relative h-[200px] sm:h-[250px] md:h-[350px] lg:h-[400px] bg-secondary/50 rounded-b-lg md:rounded-b-none md:rounded-r-lg">
+            <div className="flex-1 relative h-[350px] lg:h-[400px] bg-secondary/50 rounded-r-lg">
               {showRobot ? (
                 <SplineScene 
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
