@@ -6,12 +6,12 @@ const Hero = () => {
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden px-4 sm:px-6 md:px-12">
       <WaveBackground />
       
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-20 sm:pt-24">
-        <div className="space-y-2 sm:space-y-4">
-          <h1 className="hero-title animate-fade-up">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-16 sm:pt-20 md:pt-24">
+        <div className="space-y-1 sm:space-y-2 md:space-y-4 overflow-hidden">
+          <h1 className="hero-title animate-fade-up break-words">
             DESENVOLVEDOR
           </h1>
-          <h2 className="hero-subtitle animate-fade-up-delay-1">
+          <h2 className="hero-subtitle animate-fade-up-delay-1 break-words">
             CRIATIVO
           </h2>
         </div>
