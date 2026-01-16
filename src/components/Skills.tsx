@@ -11,7 +11,7 @@ const Skills = () => {
 
   const tools = [
     'Inteligência Artificial', 'Pacote Office', 'Dashboard de Análise',
-    'VS Code', 'Figma', 'GitHub'
+    'Figma', 'GitHub'
   ];
 
   return (
