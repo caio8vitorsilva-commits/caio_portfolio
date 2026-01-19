@@ -9,17 +9,17 @@ export function IlluminatedHero({ onComplete }: IlluminatedHeroProps) {
   // Removed auto-complete timer - user must click button
 
   return (
-    <div className="fixed inset-0 z-50 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-background">
+    <div className="fixed inset-0 z-50 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-black">
       {/* Background glow effects */}
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]"
+          className="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-white/5 blur-[120px]"
           style={{
             animation: 'onloadbgt 1.5s ease-out forwards',
           }}
         />
         <div
-          className="absolute bottom-0 left-1/2 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]"
+          className="absolute bottom-0 left-1/2 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-white/5 blur-[120px]"
           style={{
             animation: 'onloadbgb 1.5s ease-out forwards',
           }}
