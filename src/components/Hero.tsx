@@ -7,7 +7,7 @@ const Hero = () => {
       <WaveBackground />
       
       <div className="relative z-10 w-full max-w-7xl mx-auto pt-16 sm:pt-20 md:pt-24">
-        <div className="space-y-1 sm:space-y-2 md:space-y-4 overflow-hidden">
+        <div className="space-y-1 sm:space-y-2 md:space-y-4 overflow-hidden text-center md:text-left">
           <h1 className="hero-title animate-fade-up break-words">
             DESENVOLVEDOR
           </h1>
@@ -17,11 +17,11 @@ const Hero = () => {
         </div>
 
         <div className="mt-8 sm:mt-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8">
-          <div className="animate-fade-up-delay-2">
+          <div className="animate-fade-up-delay-2 text-center md:text-left">
             <p className="section-number mb-2 text-xs sm:text-sm">// SOLUÇÕES WEB ESCALÁVEIS.</p>
           </div>
 
-          <div className="max-w-md animate-fade-up-delay-3">
+          <div className="max-w-md animate-fade-up-delay-3 text-center md:text-left">
             <p className="text-foreground font-heading text-base sm:text-lg mb-2">
               Caio Vitor / Desenvolvedor Web
             </p>
@@ -33,13 +33,15 @@ const Hero = () => {
           </div>
         </div>
 
-        <a 
-          href="#sobre" 
-          className="inline-flex items-center gap-2 mt-12 sm:mt-16 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors animate-fade-up-delay-4"
-        >
-          EXPLORAR MEU TRABALHO
-          <ArrowDown className="w-4 h-4 animate-float" />
-        </a>
+        <div className="text-center md:text-left">
+          <a 
+            href="#sobre" 
+            className="inline-flex items-center gap-2 mt-12 sm:mt-16 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors animate-fade-up-delay-4"
+          >
+            EXPLORAR MEU TRABALHO
+            <ArrowDown className="w-4 h-4 animate-float" />
+          </a>
+        </div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />

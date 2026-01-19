@@ -24,7 +24,7 @@ const About = () => {
               em tecnologias modernas como React, Next.js, Node.js e Laravel.
             </p>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-              Possuo experiência com ferramentas de IA, Pacote Office, dashboards de 
+              Possuo experiência com ferramentas de IA, Office 365, dashboards de 
               análise e me comunico de forma clara e objetiva. Estou em busca da minha 
               primeira oportunidade profissional para aplicar meus conhecimentos e 
               crescer ainda mais na área.
