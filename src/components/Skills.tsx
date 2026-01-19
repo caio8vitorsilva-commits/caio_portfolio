@@ -10,7 +10,7 @@ const Skills = () => {
   ];
 
   const tools = [
-    'Inteligência Artificial', 'Pacote Office', 'Dashboard de Análise',
+    'Inteligência Artificial', 'Office 365', 'Dashboard de Análise',
     'Figma', 'GitHub'
   ];
 
